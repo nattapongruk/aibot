@@ -1,0 +1,633 @@
+*{
+    font-family: "Prompt", sans-serif;
+    margin: 0px;
+    box-sizing:border-box ;
+    padding: 0;
+    text-decoration: none; 
+    list-style-type: none;
+}
+
+.prompt-regular {
+    font-family: "Prompt", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+   body{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #0C0F14;
+
+    }
+
+   
+    
+ /* ____________________mobile____________________________ */
+
+@media screen and (max-width: 768px){
+   
+    .sidebar {
+        display: none;
+        
+    }
+
+   .mobile_mode{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    position: fixed;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    TOP: 0%;
+    
+   }
+   .mobile_mode a img{
+    right: 1;
+    margin-top: 10px;
+    width: 3rem;
+
+   }
+   .account-info{
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #252A32;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    height: 40px;
+    color: #FFFFFF;
+    width: 170px;
+   
+    transition: width 0.3s ease-out;
+   
+    }
+    .user-details{
+        color: #FFFFFF;
+        transition: transform 0.3s ease-in-out;
+        margin-right: 20px;
+    
+    } 
+  
+    .account-info img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-right: 6px;
+        transition: width 0.01s ease-out;
+    
+        
+    }
+   
+    .account-info a {
+        
+        transition: width 0.2s ease-out;
+       
+        
+    }
+    .logoutbut a i{
+        
+        color: #D17842;
+        font-size: 20px;
+        margin-right: 10px;
+       
+    }
+
+   
+
+
+    .mobile_mode {
+        height: 5rem;
+        width: 100%;
+        margin: 0 auto; /* จัดวางตำแหน่งกึ่งกลาง */
+        max-width: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        bottom: 0%;
+    }
+    
+    .mobile_mode a img {
+        right: 1;
+        margin-top: 10px;
+        width: 3rem;
+    }
+    
+    .mobile_sidebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        height: 7%;
+        margin: 0;
+        padding: 0;
+        bottom: 0%;
+        position: fixed;
+        width: 100%;
+        background-color: #252a32b9;
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        z-index: 3;
+        width: 100%;
+    }
+    
+    .mobile_sidebar ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        justify-content: space-between;
+       
+        gap: 1.3rem;
+        width: 100%; /* เพิ่มบรรทัดนี้ */
+        margin: 0 auto; /* เพิ่มบรรทัดนี้ */
+        margin: 6px;
+    }
+    
+    .mobile_sidebar ul li {
+        margin-right: 0;
+    }
+    
+    .mobile_sidebar ul li a i {
+        color: #52555A;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        width: 53px;
+        height: 53px;
+        background-color: #252a32b9;
+        backdrop-filter: blur(111px);
+    }
+
+
+    .mobile_sidebar ul li a i:hover {
+        background-color:#AEAEAE; /* เปลี่ยนพื้นหลังเป็นสีขาวเมื่อ hover */
+        border-radius: 50%; /* เพิ่มขอบโค้งให้กับไอคอน */
+    }
+
+/* ________________________________________________ */
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+    margin: 5rem;
+   
+}
+
+.slider{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width:100%;
+}
+   
+   
+
+.content h2{
+    margin-top: 2rem;
+    color: white;
+
+}
+.slide{
+    width:100%;
+    height: 6rem;
+    flex-direction: row;
+    position: relative;
+    padding: 15px;
+    background-color: #252a3252;
+    color: white;
+    border-radius: 10px;
+    display: flex; /* เพิ่มบรรทัดนี้ */
+    align-items: center; /* เพิ่มบรรทัดนี้ */
+    margin-bottom: 2rem;
+    flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
+    justify-content: space-around; /* จัดวางตามระยะห่างระหว่างองค์ประกอบ */
+    align-items: center; /* จัดวางให้กึ่งกลางตามแนวตั้ง */
+  
+
+}
+.label{
+    width: 120px;
+    margin: 5px;
+}
+
+.slide h2 {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    align-items: center;
+    position: absolute; /* ตั้งค่า position เป็น absolute สำหรับ h2 */
+    top: -50%; /* จัดวาง h2 ที่ด้านบนของ slide */
+    transform: translateX(-90%); /* ย้าย h2 ไปทางซ้ายอยู่ 50% ของ slide */
+    background-color: #D17842;
+    width: 40px;
+    height: 40px;
+    border-radius:60px ;
+    left: 7%; /* จัดวาง h2 ให้ชิดซ้ายของ slide */
+    z-index: 1; /* ตั้งค่า z-index เพื่อให้ h2 อยู่ด้านบนของรูปภาพ */
+}
+.slide img{
+    float: left;
+   border-radius: 10px;
+   width: 70px;
+   margin-right: 4px;
+}
+.slide h4{
+    flex-direction: column; /* เพิ่มบรรทัดนี้ */
+    font-weight: lighter;
+}
+.slide h3{
+    font-weight: lighter;
+}
+.slide a{
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    width: 60px;
+    margin-top: 15px;
+    color: #FFFFFF;
+    background-color: #D17842;
+    border-radius: 5px;
+    padding: 5px;
+    border: 0;
+   
+ }
+ .slide p{
+    
+    text-align: center;
+   margin-right: 10px;
+ }
+.topic{
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252A32;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+.content h2 {
+    margin-top: 2rem;
+    color: white;
+}
+
+.topic {
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252a32;
+    border-radius: 10px;
+}
+
+.box {
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 10px;
+    background-color: #252a3252;
+    border: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 1rem;
+    position: relative;
+    top: 2rem; /* ปรับตำแหน่ง .box ลงด้านล่างของ .slider */
+}
+
+.box img {
+    width: 10%;
+    border-radius: 5px;
+    float: left;
+}
+
+.box .name {
+    align-items: center;
+    text-align: center;
+}
+
+.image {
+    float: left;
+}
+
+.box a {
+    color: #e58e27;
+    margin-left: auto;
+    margin-right: 10px;
+    
+}
+
+
+.topic2{
+   
+    margin-top:2rem ;
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252A32;
+    border-radius: 10px;
+    color: #FFFFFF;
+   
+}
+.container{
+    margin-bottom: 2rem;
+}
+
+}
+/* ____________________desktop___________________________ */
+@media screen and (min-width: 768px){
+    .mobile_mode{
+        display: none;
+       }
+    .sidebar {
+        display: flex;
+        justify-content: space-between; /* เพิ่มบรรทัดนี้ */
+        align-items: center; 
+        height: 70px;
+        margin: 0;
+        padding: 0;
+        top: 0%;
+        position: fixed;
+        width: 100%;
+        backdrop-filter: blur(3px);
+        transition: transform 0.3s ease-in-out;
+        
+        
+    }
+    .mobile_sidebar{
+        color: #FFFFFF;
+        display: none;
+   }
+    .dl{
+        font-weight: 400;
+    }
+    .hidden-sidebar {
+        transform: translateY(-100%);
+    }
+    .sidebar ul li a {
+        
+        font-size: 1rem;
+        font-weight: 400 ;
+        color: rgb(0, 0, 0);
+       
+     
+        
+    }
+    .sidebar ul li a { 
+        font-size: 1rem;
+        font-weight: 400 ;
+        color: white;
+     
+        border: 0;
+       
+    }
+    
+    
+    .sidebar ul li a :hover{
+        color: #E58E27;
+        transition: color 0.3s ease-in-out;
+    }
+    .sidebar ul li a img{
+        margin-top: 10px;
+        padding: 3px;
+        background-color:#252A32;       ;
+        width: 45px;
+        border-radius: 50px;
+    }
+
+    .sidebar ul{
+        display: flex;
+        
+    }
+    .sidebar ul li{
+        margin-right: 1rem;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .account-info{
+        font-size: 12px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        background-color: #252A32;
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        height: 40px;
+        color: #FFFFFF;
+        width: 40px;
+        margin-right: 10px;
+        transition: width 0.3s ease-out;
+    }
+    .user-details{
+        color: #FFFFFF;
+        display: none;
+        opacity: 0; 
+        transition: transform 0.3s ease-in-out;
+
+       
+    } 
+   
+    .account-info:hover .user-details {
+        transition: opacity 1s ease-out;
+        display: block;
+        opacity: 1; /* เมื่อ hover ที่ .account-info ให้แสดง .user-details และทำให้เป็นโปร่งแสง */
+    }
+    .account-info img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-right: 6px;
+        margin-left: 25px;
+        transition: width 0.01s ease-out;
+       
+        
+    }
+    .account-info:hover img {
+        margin-left: 6px; /* เมื่อ hover ให้ margin-left เป็น 6px */
+    }
+    .account-info:hover .user-details,
+    .account-info:hover a,
+    .account-info:hover .logoutbut a i 
+    {
+    transition: opacity 0.01s ease-out;
+    display: initial;
+   
+}
+
+    .account-info:hover {
+        
+        transition: width 0.1s ease-out;
+        width: 170px;
+    }
+    .account-info a {
+        
+        transition: width 0.2s ease-out;
+        margin-left: 20px;
+        
+    }
+    .logoutbut a i{
+        
+        color: #D17842;
+        font-size: 15px;
+        margin-right: 10px;
+        display: none;
+    }
+
+
+/* ____________________trading graph____________________________ */
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5rem;
+}
+
+.slider {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+
+.content h2 {
+    margin-top: 2rem;
+    color: white;
+}
+
+.slide {
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    background-color: #252a3252;
+    color: white;
+    border-radius: 10px;
+    margin-right: 30px;
+}
+
+.slide h2 {
+    align-items: center;
+    position: absolute;
+    top: -15%;
+    transform: translateX(-90%);
+    background-color: #d17842;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    left: 10%;
+    z-index: 1;
+}
+
+.slide img {
+    border-radius: 10px;
+    width: 170px;
+}
+
+.slide h4 {
+    font-weight: lighter;
+}
+
+.slide h3 {
+    font-weight: lighter;
+}
+
+.slide a {
+    font-size: 14px;
+    float: right;
+    width: 70px;
+    margin-top: 15px;
+    color: #ffffff;
+    background-color: #d17842;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+}
+
+.topic {
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252a32;
+    border-radius: 10px;
+}
+
+.box {
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 10px;
+    background-color: #252a3252;
+    border: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 1rem;
+    position: relative;
+    top: 2rem; /* ปรับตำแหน่ง .box ลงด้านล่างของ .slider */
+}
+
+.box img {
+    width: 10%;
+    border-radius: 5px;
+    float: left;
+}
+
+.box .name {
+    align-items: center;
+    text-align: center;
+}
+
+.image {
+    float: left;
+}
+
+.box a {
+    color: #e58e27;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+
+.topic2{
+    margin-top:2rem ;
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252A32;
+    border-radius: 10px;
+    color: #FFFFFF;
+   
+}
+.container{
+    margin-bottom: 2rem;
+}
+
+}
+

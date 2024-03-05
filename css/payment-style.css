@@ -1,0 +1,455 @@
+*{
+    font-family: "Prompt", sans-serif;
+    margin: 0px;
+    box-sizing:border-box ;
+    padding: 0;
+    text-decoration: none; 
+    list-style-type: none;
+}
+
+.prompt-regular {
+    font-family: "Prompt", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+   body{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #0C0F14;
+
+    }
+
+    
+   
+ /* ____________________mobile____________________________ */
+
+@media screen and (max-width: 768px){
+   
+    .sidebar {
+        display: none;
+        
+    }
+
+   .mobile_mode{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    position: fixed;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    TOP: 0%;
+    
+   }
+   .mobile_mode a img{
+    right: 1;
+    margin-top: 10px;
+    width: 3rem;
+
+   }
+   .account-info{
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #252A32;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    height: 40px;
+    color: #FFFFFF;
+    width: 170px;
+   
+    transition: width 0.3s ease-out;
+   
+    }
+    .user-details{
+        color: #FFFFFF;
+        transition: transform 0.3s ease-in-out;
+        margin-right: 20px;
+    
+    } 
+  
+    .account-info img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-right: 6px;
+        transition: width 0.01s ease-out;
+    
+        
+    }
+   
+    .account-info a {
+        
+        transition: width 0.2s ease-out;
+       
+        
+    }
+    .logoutbut a i{
+        
+        color: #D17842;
+        font-size: 20px;
+        margin-right: 10px;
+       
+    }
+
+   
+
+
+    .mobile_mode {
+        height: 5rem;
+        width: 100%;
+        margin: 0 auto; /* จัดวางตำแหน่งกึ่งกลาง */
+        max-width: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        bottom: 0%;
+    }
+    
+    .mobile_mode a img {
+        right: 1;
+        margin-top: 10px;
+        width: 3rem;
+    }
+    
+    .mobile_sidebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        height: 7%;
+        margin: 0;
+        padding: 0;
+        bottom: 0%;
+        position: fixed;
+        width: 100%;
+        background-color: #252a32b9;
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        z-index: 3;
+        width: 100%;
+    }
+    
+    .mobile_sidebar ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        justify-content: space-between;
+       
+        gap: 1.3rem;
+        width: 100%; /* เพิ่มบรรทัดนี้ */
+        margin: 0 auto; /* เพิ่มบรรทัดนี้ */
+        margin: 6px;
+    }
+    
+    .mobile_sidebar ul li {
+        margin-right: 0;
+    }
+    
+    .mobile_sidebar ul li a i {
+        color: #52555A;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        width: 53px;
+        height: 53px;
+        background-color: #252a32b9;
+        backdrop-filter: blur(111px);
+    }
+
+
+    .mobile_sidebar ul li a i:hover {
+        background-color:#AEAEAE; /* เปลี่ยนพื้นหลังเป็นสีขาวเมื่อ hover */
+        border-radius: 50%; /* เพิ่มขอบโค้งให้กับไอคอน */
+    }
+
+/* ________________________________________________ */
+.container  {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    margin-top: 2rem;
+    color: white;
+    width: 100%;
+}
+.container h2 {
+    color:white;
+    margin-top: 2rem;
+}
+}
+.tablecontent { 
+    margin-top: 2rem;
+    width: 50;
+    border-collapse: collapse; /* เพิ่มให้เซลล์รวมกัน */
+    
+}
+
+.tablecontent th, .tablecontent td {
+
+    padding: 8px;
+    text-align: center;
+}
+.tablecontent tr{
+    padding:120px;
+    background-color:#252A32;
+    border-radius: 15px;
+
+}
+.tablecontent th {
+    background-color: #AEAEAE;
+   
+    border-radius:15 ;
+    color: #252A32;
+}
+
+
+.paybut {
+    background-color: #D17842;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.paybut:hover {
+    background-color: #d17942d3;
+}
+
+
+
+
+
+/* ____________________desktop___________________________ */
+@media screen and (min-width: 768px){
+    .mobile_mode{
+        display: none;
+       }
+    .sidebar {
+        display: flex;
+        justify-content: space-between; /* เพิ่มบรรทัดนี้ */
+        align-items: center; 
+        height: 70px;
+        margin: 0;
+        padding: 0;
+        top: 0%;
+        position: fixed;
+        width: 100%;
+        backdrop-filter: blur(3px);
+        transition: transform 0.3s ease-in-out;
+        
+        
+    }
+    .mobile_sidebar{
+        color: #FFFFFF;
+        display: none;
+   }
+    .dl{
+        font-weight: 400;
+    }
+    .hidden-sidebar {
+        transform: translateY(-100%);
+    }
+    .sidebar ul li a {
+        
+        font-size: 1rem;
+        font-weight: 400 ;
+        color: rgb(0, 0, 0);
+       
+     
+        
+    }
+    .sidebar ul li a { 
+        font-size: 1rem;
+        font-weight: 400 ;
+        color: white;
+     
+        border: 0;
+       
+    }
+    
+    
+    .sidebar ul li a :hover{
+        color: #E58E27;
+        transition: color 0.3s ease-in-out;
+    }
+    .sidebar ul li a img{
+        margin-top: 10px;
+        padding: 3px;
+        background-color:#252A32;       ;
+        width: 45px;
+        border-radius: 50px;
+    }
+
+    .sidebar ul{
+        display: flex;
+        
+    }
+    .sidebar ul li{
+        margin-right: 1rem;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .account-info{
+        font-size: 12px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        background-color: #252A32;
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        height: 40px;
+        color: #FFFFFF;
+        width: 40px;
+        margin-right: 10px;
+        transition: width 0.3s ease-out;
+    }
+    .user-details{
+        color: #FFFFFF;
+        display: none;
+        opacity: 0; 
+        transition: transform 0.3s ease-in-out;
+
+       
+    } 
+   
+    .account-info:hover .user-details {
+        transition: opacity 1s ease-out;
+        display: block;
+        opacity: 1; /* เมื่อ hover ที่ .account-info ให้แสดง .user-details และทำให้เป็นโปร่งแสง */
+    }
+    .account-info img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-right: 6px;
+        margin-left: 25px;
+        transition: width 0.01s ease-out;
+       
+        
+    }
+    .account-info:hover img {
+        margin-left: 6px; /* เมื่อ hover ให้ margin-left เป็น 6px */
+    }
+    .account-info:hover .user-details,
+    .account-info:hover a,
+    .account-info:hover .logoutbut a i 
+    {
+    transition: opacity 0.01s ease-out;
+    display: initial;
+   
+}
+
+    .account-info:hover {
+        
+        transition: width 0.1s ease-out;
+        width: 170px;
+    }
+    .account-info a {
+        
+        transition: width 0.2s ease-out;
+        margin-left: 20px;
+        
+    }
+    .logoutbut a i{
+        
+        color: #D17842;
+        font-size: 15px;
+        margin-right: 10px;
+        display: none;
+    }
+
+
+
+
+
+/* ________________________________________________ */
+.container  {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    margin-top: 2rem;
+    color: white;
+    width: 100%;
+}
+.container h2 {
+    color:white;
+    margin-top: 2rem;
+}
+
+.tablecontent { 
+    margin-top: 2rem;
+    width: 50;
+    border-collapse: collapse; /* เพิ่มให้เซลล์รวมกัน */
+    
+}
+
+.tablecontent th, .tablecontent td {
+
+    padding: 8px;
+    text-align: center;
+}
+.tablecontent tr{
+    padding:120px;
+    background-color:#252A32;
+    border-radius: 15px;
+
+}
+.tablecontent th {
+    background-color: #AEAEAE;
+   
+    border-radius:15 ;
+    color: #252A32;
+}
+
+
+.paybut {
+    background-color: #D17842;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.paybut:hover {
+    background-color: #d17942d3;
+}
+
+
+}
+
+
+
+
+  
