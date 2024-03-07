@@ -183,9 +183,12 @@ $conn->close();
                 ?>
                 <br>
     </div>
-    <h2 class="topic2">Download <i class="fa-solid fa-circle-down" style="color: #ff8800;"></i></h2>
+   
     <div class="container">
-        
+       
+
+        <h2 class="topic2">Template <i class="fa-solid fa-circle-down" style="color: #ff8800;"></i></h2>
+
         <div class="box">
             <img class="image" src="img/XAUUSD.png" alt="">
             <span class="name">XAUUSD</span> 

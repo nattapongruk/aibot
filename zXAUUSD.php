@@ -150,6 +150,13 @@ $conn->close();
 </script>
     <div class="container">
         <h3  style="color:#d17842;">XAUUSD</h3>
+      
+        <div class="box">
+            <img class="image" src="img/mt4.png" alt="">
+            <span class="name">BOT</span> 
+            <a href="bot+model/bot.zip" class="paybut" style="color: white;">Download </a>
+
+        </div>
         <h3>Select Time Frame</h3>
         <div class="button-container">
             <button value="XAUUSD_M15" onclick="getData('XAUUSD', '15')">M15</button>

@@ -22,7 +22,7 @@
         background-color: #0C0F14;
 
     }
-
+  
    
     
  /* ____________________mobile____________________________ */
@@ -314,6 +314,7 @@
     gap: 1rem;
     position: relative;
     top: 2rem; /* ปรับตำแหน่ง .box ลงด้านล่างของ .slider */
+    margin-bottom: 2rem;
 }
 
 .box img {
@@ -340,7 +341,7 @@
 
 
 .topic2{
-   
+    margin-bottom: 2rem;
     margin-top:2rem ;
     width: 220px;
     text-align: center;
@@ -591,6 +592,7 @@
     gap: 1rem;
     position: relative;
     top: 2rem; /* ปรับตำแหน่ง .box ลงด้านล่างของ .slider */
+    margin-bottom: 2rem;
 }
 
 .box img {
@@ -616,6 +618,7 @@
 
 
 .topic2{
+   
     margin-top:2rem ;
     width: 220px;
     text-align: center;
@@ -631,3 +634,16 @@
 
 }
 
+.paybut {
+    background-color: #D17842;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.paybut:hover {
+    background-color: #d17942d3;
+}

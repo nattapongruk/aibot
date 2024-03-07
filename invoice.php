@@ -29,7 +29,7 @@ if (isset($_GET['start_date']) && isset($_GET['end_date']) && isset($_GET['total
     $total_trade = $_GET['total_trade'];
     $total = $_GET['total'];
 
-    // ดึงอัตราแลกเปลี่ยน USD เป็น THB โดยใช้ FreeCurrencyAPI
+   
     $access_key = 'fca_live_w6XVNeM8USiLK8Sg5YEcqE3JBciU6bO1ijZX6vUP'; // ระบุ Access Key ของคุณที่ได้รับจาก FreeCurrencyAPI
     $url = "https://api.freecurrencyapi.com/v1/latest?apikey=$access_key&currencies=THB";
     $response = file_get_contents($url);
@@ -258,7 +258,7 @@ $conn->close();
         <table class="invoice-table">
            
                 <tr>
-                    <th style="color: #d17842;">วันที่เริ่มต้น</th>
+                    <th style="color: #d17842;" >วันที่เริ่มต้น</th>
                     <td style="color: #d17842;">วันที่สิ้นสุด</td>
                     
                 </tr>
@@ -272,26 +272,26 @@ $conn->close();
             <tr>
                
                 <th>รวมจำนวนการซื้อขายที่ได้ขาดทุน</th>
-                <td>ขาดทุนทั้งหมด <?php echo $total_unprofit; ?> ครั้ง รวม <?php echo number_format($unprofit  * $usd_to_thb_rate,2); ?> บาท</td>
+                <td>ขาดทุน <?php echo $total_unprofit; ?> ครั้ง รวม <?php echo number_format($unprofit  * $usd_to_thb_rate,2); ?> บาท ($<?php echo number_format($unprofit, 2); ?>)</td>
 </td>
             </tr>
            
            
              <tr>
                 <th>รวมจำนวนการซื้อขายที่ได้กำไร</th>
-                <td>ได้กำไรทั้งหมด <?php echo $total_trade ; ?> ครั้ง รวม <?php echo number_format($total * $usd_to_thb_rate,2); ?> บาท</td>
+                <td>กำไร <?php echo $total_trade ; ?> ครั้ง รวม <?php echo number_format($total * $usd_to_thb_rate,2); ?> บาท ($<?php echo number_format($total, 2); ?>)</td>
             </tr>
            
             <tr>
                 <th> ยอดที่ต้องชำระ 5 %</th>
-                <td><?php echo number_format($total_in_thb*0.05, 2); ?> บาท </td>
+                <td><?php echo number_format($total_in_thb*0.05, 2); ?> บาท ($<?php echo number_format($total*0.05, 2); ?>)</td>
             </tr>
         </table>
-
-        <form action="" method="post" enctype="multipart/form-data" >
-            <input type="file" name="image" accept="image/*">
-            <button type="submit">Confirm Payment</button>
-        </form>
+                <img src="img/qr.png" alt="">
+        <form action="upload-slip.php?start_date=<?php echo $start_date; ?>&end_date=<?php echo $end_date; ?>" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Confirm Payment</button>
+    </form>
     </div>
         <?php
     

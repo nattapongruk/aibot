@@ -102,11 +102,9 @@ $conn->close();
 
            <ul>    
            <li><a href="#"> <img src="img/logo3.png" alt="">   </a></li>
-           <li> <a href="homepage.php"><span> Home</span></a></li>
-           <li><a href="port.php"><span> Port</span></a></li>
-           <li><a href="status.php"></i><span> Status</span></a></li>
-           <li><a href="download.php"><span class="dl"> Dowload</span></i></a></li>
-           <li><a href="payment.php"><span> My Bill</span></i></a></li>
+           <li> <a href="admin.php"><span> Admin</span></a></li>
+           <li> <a href="dashboard.php"><span> Dashboard</span></a></li>
+           
            </ul>
 
            <div class="account-info">
@@ -229,8 +227,9 @@ $conn->close();
         
         ?>
     </table>
-        <h2>Update Template</h2>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <br>
+        <h2>Update Template.set</h2>
+    <form action="upload-set.php" method="post" enctype="multipart/form-data">
     <label for="templateFile">Choose file:</label>
     <input type="file" id="templateFile" name="templateFile" accept=".txt">
     <br><br>
@@ -251,6 +250,18 @@ $conn->close();
     <br><br>
     <input type="submit" value="Upload" name="submit" class="buttt">
 </form>
+<br>
+        <h2>Upload model.h5</h2>
+        <form action="upload-model.php" method="post" enctype="multipart/form-data">
+        เลือกไฟล์ H5:
+        <input type="file" name="h5_file" id="h5_file"><br><br>
+        ชื่อโมเดล:
+        <input type="text" name="model_name"><br><br>
+        Timeframe:
+        <input type="text" name="timeframe"><br><br>
+        <input type="submit" value="Upload" name="submit">
+    </form>
+ 
         <h2>Payment check</h2>
 <?php
 
@@ -296,7 +307,7 @@ $conn->close();
 ?>
 
 
-
+    
 
 
     </div>

@@ -23,6 +23,7 @@
 
     }
 
+  
     
    
  /* ____________________mobile____________________________ */
@@ -489,8 +490,59 @@ a{
 
 
 
+.box {
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 10px;
+    background-color: #252a3252;
+    border: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 55%;
+    gap: 1rem;
+   
+    position: relative;
+    top: 2rem; /* ปรับตำแหน่ง .box ลงด้านล่างของ .slider */
+    margin-bottom: 2rem;
+}
 
+.box img {
+    width: 3.5rem;
+    border-radius: 5px;
+    float: left;
+}
 
+.box .name {
+    align-items: center;
+    text-align: center;
+}
+
+.image {
+    float: left;
+}
+
+.box a {
+    color: #e58e27;
+    margin-left: auto;
+    margin-right: 10px;
+    
+}
+.paybut {
+    background-color: #D17842;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.paybut:hover {
+    background-color: #d17942d3;
+}
 
 
 
