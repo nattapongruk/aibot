@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["portnumber"])) {
-    header("location: login.php");
+    header("location: index.php");
     exit(); // ต้องใส่ exit เพื่อหยุดการทำงานทันทีหลังจาก redirect
 }
 ?>

@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ถ้าไม่มีข้อมูลซ้ำในฐานข้อมูล ทำการเพิ่มข้อมูล
         $sql = "INSERT INTO infouser (portnumber, idcard, phone, password)
                 VALUES ('$portnumber', '$idcard', '$phone', '$pass')";
-         header("Location: login.php");
+         header("Location: index.php");
 
         if ($conn->query($sql) === TRUE) {
             echo "Registration successful";

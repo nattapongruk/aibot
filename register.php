@@ -19,7 +19,7 @@
         <br><input type="submit" value="Register" class="loginbut">
     </form>
     <br>
-    <a href="login.php">Login</a>
+    <a href="index.php">Login</a>
     </div>
 
 </body>

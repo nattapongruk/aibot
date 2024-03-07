@@ -3,7 +3,7 @@ session_start();
 
 // ตรวจสอบว่ามี Session portnumber หรือไม่
 if (!isset($_SESSION["portnumber"])) {
-    header("location: login.php");
+    header("location: index.php");
     exit();
 }
 

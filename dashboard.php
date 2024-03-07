@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["portnumber"])) {
-    header("location: login.php");
+    header("location: index.php");
     exit();
 }
 
@@ -19,12 +19,12 @@ if ($result->num_rows > 0) {
     
     // ตรวจสอบว่า role เป็น admin หรือไม่
     if ($role !== "admin") {
-        header("location: login.php");
+        header("location: index.php");
         exit();
     }
 } else {
     // ถ้าไม่พบข้อมูลผู้ใช้
-    header("location: login.php");
+    header("location: index.php");
     exit();
 }
 
