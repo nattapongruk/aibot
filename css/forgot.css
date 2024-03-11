@@ -1,0 +1,41 @@
+*{
+    font-family: "Prompt", sans-serif;
+    margin: 0px;
+    box-sizing:border-box ;
+    padding: 0;
+    text-decoration: none; 
+    list-style-type: none;
+}
+body{
+    background-color: #0C0F14;
+}
+.container {
+   color: white;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20rem;
+}
+
+input[type="tel"],
+input[type="text"],
+input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+input[type="button"].loginbut {
+    background-color: #E58E27;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#otpInput {
+    display: none;
+}

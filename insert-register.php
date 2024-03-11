@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // ถ้ามีข้อมูลซ้ำในฐานข้อมูล
-        echo "Error: Portnumber or ID Card already exists";
+        echo "<script>alert('Error: Portnumber or ID Card already exists');</script>";
     } else {
         // ถ้าไม่มีข้อมูลซ้ำในฐานข้อมูล ทำการเพิ่มข้อมูล
         $sql = "INSERT INTO infouser (portnumber, idcard, phone, password, register_date)
@@ -25,9 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php");
 
         if ($conn->query($sql) === TRUE) {
-            echo "Registration successful";
+            echo "<script>alert('Registration successful');</script>";
+            echo "<script>window.location.href = 'login.php';</script>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+            echo "<script>window.location.href = 'login.php';</script>";
         }
     }
 }

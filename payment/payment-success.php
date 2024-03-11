@@ -152,40 +152,62 @@ if(!empty($_GET['session_id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            font-family: "Prompt", sans-serif;
+            margin: 0px;
+            box-sizing:border-box ;
+            padding: 0;
+            text-decoration: none; 
+            list-style-type: none;
+        }
+        body{
+            background:#0C0F14 ;
+        }
         h1.success {
-            color: green;
+            color: white;
         }
 
-        /* Style for Error message */
+        /* Error message style */
         h1.error {
             color: red;
         }
 
-        /* Optional: Additional styling for the container */
+        /* Additional styling for the container */
         .container {
+            
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px;
             text-align: center;
-            border: 1px solid #ccc;
+           
             border-radius: 5px;
-            background-color: #f9f9f9;
+           
+            margin-top: 20rem;
+        }
+
+        /* Optional: Additional styling for paragraphs */
+        p {
+        color: white;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
-<?php if(!empty($payment_id)){ ?>
-    <h1 class="<?php echo $status; ?>">Payment Success!</h1>
-    <p>Wait a minute</p>
-    <script>
-        setTimeout(function() {
-            window.location.href = "../payment.php";
-        }, 3000); // Redirect after 3 seconds (3000 milliseconds)
-    </script>
-<?php } else { ?>
-    <h1 class="error">Your Payment has been failed!</h1>
-    <p class="error"><?php echo $statusMsg; ?></p>
-<?php } ?>      
+    <div class="container">
+    <?php if(!empty($payment_id)){ ?>
+        <h1 class="<?php echo $status; ?>">Payment Success!</h1>
+        <p>Wait a minute</p>
+        <script>
+            setTimeout(function() {
+                window.location.href = "../payment.php";
+            }, 3000); // Redirect after 3 seconds (3000 milliseconds)
+        </script> 
+    <?php } else { ?>
+        <h1 class="error">Your Payment has been failed!</h1>
+        <p class="error"><?php echo $statusMsg; ?></p>
+    <?php } ?>   
+    </div>
+   
 </body>
 </html>
 

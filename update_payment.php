@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $update_history_sql = "UPDATE history SET stats = 1 WHERE portnumber = '$portnumber' AND date BETWEEN '$start_date' AND '$end_date'";
                 if ($conn->query($update_history_sql) === TRUE) {
-                    echo "Record updated successfully";
+                    echo "<script>alert('Record updated successfully');</script>";
                 } else {
-                    echo "Error updating record: " . $conn->error;
+                    echo "<script>alert('Error updating record: ".$conn->error."');</script>";
                 }
             } else {
-                echo "No payment found with the given ID";
+                echo "<script>alert('No payment found with the given ID');</script>";
             }
         } else {
-            echo "Error updating payment: " . $conn->error;
+            echo "<script>alert('Error updating payment: ".$conn->error."');</script>";
         }
     } elseif (isset($_POST['submit']) && $_POST['submit'] == 'ยกเลิก') {
         // Update payment status to 'Not yet processed'
@@ -44,15 +44,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $update_history_sql = "UPDATE history SET stats = 0 WHERE portnumber = '$portnumber' AND date BETWEEN '$start_date' AND '$end_date'";
                 if ($conn->query($update_history_sql) === TRUE) {
-                    echo "Record updated successfully";
+                    echo "<script>alert('Record updated successfully');</script>";
                 } else {
-                    echo "Error updating record: " . $conn->error;
+                    echo "<script>alert('Error updating record: ".$conn->error."');</script>";
                 }
             } else {
-                echo "No payment found with the given ID";
+                echo "<script>alert('No payment found with the given ID');</script>";
             }
         } else {
-            echo "Error updating payment: " . $conn->error;
+            echo "<script>alert('Error updating payment: ".$conn->error."');</script>";
         }
     }
 }

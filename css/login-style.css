@@ -20,6 +20,7 @@
         background-color: #0C0F14;
     }
   
+ 
 /* mobile */
 @media screen and (max-width: 768px){
  
@@ -41,6 +42,7 @@
         background-color: #252A32;
          color: white;  
         backdrop-filter: blur(10px);
+       
     }
 
     h2{
@@ -74,6 +76,7 @@
         background-color: #E58E27;
         color: white;
         box-shadow: 1px 1px 1px 1px rgba(107, 107, 107, 0.5);
+        margin-top: 20px;
      }
      .loginbut:hover{
         opacity: 0.75;
@@ -113,7 +116,7 @@
       border-radius: 1.2em;
       margin: 2rem;
       padding: 2rem;
-      height: 40rem;
+      height: 43rem;
       color: black;
       width: 27rem;
       text-align: center;
@@ -151,6 +154,7 @@
         font-weight: bold;
         background-color: #E58E27;
         color: white;
+        margin-top: 20px;
         
      }
      .loginbut:hover{
@@ -178,3 +182,5 @@
         width: 100px;
      }
 }
+
+

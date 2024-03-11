@@ -262,7 +262,7 @@ $conn->close();
         <input type="submit" value="Upload" name="submit" class="buttt">
     </form>
  
-        <h2>Payment check</h2>
+        <!-- <h2>Payment check</h2>
 <?php
 
     $sql = "SELECT * FROM payment WHERE status = 'pending'";
@@ -304,7 +304,7 @@ $conn->close();
     } else {
         echo "0 results";
     }
-?>
+?> -->
 
 
     

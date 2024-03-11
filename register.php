@@ -23,62 +23,66 @@
         </form>
             <input type="button" value="Send OTP" onclick="sendOTP()" class="loginbut">
             <div id="otpInput" style="display: none;">
-            <p>Enter OTP</p>
+            
             <br><input type="text" id="otp" class="inputbox"><br><br>
             <input type="button" value="Verify OTP" onclick="verifyOTP()" class="loginbut">
         </div>
-        <br><input type="submit" value="Register" class="loginbut" id="registerButton" disabled>
+        <br><input type="button" value="Register" class="loginbut" id="registerButton" disabled onclick="registerUser()">
         <br>
         <a href="index.php">Login</a>
     </div>
 
     <script>
-            function sendOTP() {
-                var phone = document.getElementById('phone').value;
-                fetch('http://localhost:3000/send-otp', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ phone }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    alert('OTP ถูกส่งไปที่เบอร์โทรศัพท์ของคุณแล้ว');
-                    document.getElementById('otpInput').style.display = 'block'; // Show OTP input field
-                })
-                .catch(error => {
-                    console.error(error);
-                    alert('เกิดข้อผิดพลาดในการส่ง OTP');
-                });
+              function sendOTP() {
+        var phone = document.getElementById('phone').value;
+        fetch('http://localhost:3000/send-otp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ phone }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            alert('OTP ถูกส่งไปที่เบอร์โทรศัพท์ของคุณแล้ว');
+            document.getElementById('otpInput').style.display = 'block'; // Show OTP input field
+            document.querySelector('.container').style.height = '80rem'; // Increase container height
+
+        })
+        .catch(error => {
+            console.error(error);
+            alert('เกิดข้อผิดพลาดในการส่ง OTP');
+        });
+    }
+
+    function verifyOTP() {
+        var pin = document.getElementById('otp').value; // Get the pin from your application logic
+
+        fetch('http://localhost:3000/verify-otp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pin }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status == 'success') {
+                alert('ยืนยัน OTP สำเร็จ');
+                document.getElementById('registerButton').disabled = false; // Enable the register button
             }
+        })
+        .catch(error => {
+            console.error(error);
+            alert('An error occurred while verifying OTP');
+        });
+    }
 
-        function verifyOTP() {
-            var pin = document.getElementById('otp').value; // Get the pin from your application logic
-
-            fetch('http://localhost:3000/verify-otp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ pin }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from the server after OTP verification
-                console.log(data);
-                // Example: If verification is successful, enable the register button
-                if (data.status == 'success') {
-                    //แก้ตรงนี้
-                    console.log("SECCESS");
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                alert('An error occurred while verifying OTP');
-            });
-        }
+    function registerUser() {
+        document.getElementById('registerForm').submit(); // Submit the form
+    }
     </script>
 </body>
 </html>

@@ -22,20 +22,23 @@
 /* mobile */
 @media screen and (max-width: 768px){
     body {
-        background-color: #d9d9d9;
+      background-color: #0C0F14;
       
         margin: 0;
     }
    
     .container{  
-        border-radius: 1.2em;
-        margin: 2rem;
-        padding: 2rem;
-        height: 47rem;
-        color: black;
-        width: 20rem;
-        text-align: center;
-        background-color:  white;  
+  
+         border-radius: 1.2em;
+         margin: 2rem;
+         padding: 2rem;
+         height: 52rem;
+         color: black;
+         width: 20rem;
+         text-align: center;
+         background-color: #252A32;
+          color: white;  
+         backdrop-filter: blur(10px);
     }
 
     h2{
@@ -58,17 +61,17 @@
      
      }
      .loginbut{
-        text-align: center;
-        border:0px;
-        border-radius: 0.4rem;
-        width: 17rem;
-        height: 3rem;
-        font-size:1rem;
-        font-weight: bold;
-        background-color: rgba(255, 153, 19, 0.219);
-        backdrop-filter: blur(10px);
-        color: #573000;
-        margin-bottom: 20px;
+      text-align: center;
+      border:0px;
+      border-radius: 0.4rem;
+      width: 17rem;
+      height: 3rem;
+      font-size:1rem;
+      font-weight: bold;
+      background-color: #E58E27;
+      color: white;
+      box-shadow: 1px 1px 1px 1px rgba(107, 107, 107, 0.5);
+      margin-top: 20px;
         
         
      }
@@ -83,6 +86,7 @@
      }
     
      a{
+    
         text-align: center;
         font-weight: bold;
         color: #E58E27;
@@ -102,18 +106,21 @@
 /* desktop */
 @media screen and (min-width: 768px) {
     body {
-        background-color: #d9d9d9;
+      background-color: #0C0F14;
         font-size: 16px;
         margin: 0;
     }
     .container{  
-        border-radius: 1.2em;
-        padding: 2rem;
-        height: 66em;
-        color: black;
-        width: 30rem;
-        text-align: center;
-        background-color:  white;  
+      border-radius: 1.2em;
+      margin: 2rem;
+      padding: 2rem;
+      height:65rem;
+      color: black;
+      width: 27rem;
+      text-align: center;
+      background-color: #252A32;
+       color: white;  
+      backdrop-filter: blur(10px);  
     }
 
     h2{
@@ -125,15 +132,15 @@
     }
  
     .inputbox{
-        border:0px;
-        border-radius: 0.4rem;
-        width: 20rem;
-        height: 2.5rem;
-        font-size: 1.3rem;
-        text-align: center;
-        background-color: rgba(255, 153, 19, 0.219);
-        backdrop-filter: blur(10px);
-        color: #573000;
+      border:0px;
+      border-radius: 0.4rem;
+      width: 20rem;
+      height: 2.5rem;
+      font-size: 1.3rem;
+      text-align: center;
+      background-color: #aeaeae;
+       backdrop-filter: blur(10px);
+      color: #252A32;
      
      }
      .loginbut{

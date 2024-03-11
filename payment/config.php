@@ -66,8 +66,8 @@ $conn->close();
  */ 
 define('STRIPE_API_KEY', 'sk_test_51OWOL0ETrVas1RYlzjkEZxwNt9ydqtUPjObbBM3HbAdJ7mycEq7QH3bZPuDmoVJtIHMWxwpbHpHIGXwb9nt2sucg00HkaMA4Aa'); 
 define('STRIPE_PUBLISHABLE_KEY', 'pk_test_51OWOL0ETrVas1RYljIuAPNKbtdQ5Bqln8OOAZ5iSszf6h8YHvKtaWHC9zBhqg1uYqD0CFLP3iRTRggEpZTN4uaZI006GZHcpg2'); 
-define('STRIPE_SUCCESS_URL', 'https://localhost/aibot/payment/payment-success.php'); //Payment success URL 
-define('STRIPE_CANCEL_URL', 'https://localhost/aibot/payment/payment-cancel.php'); //Payment cancel URL 
+define('STRIPE_SUCCESS_URL', 'https://localhost/ai/payment/payment-success.php'); //Payment success URL 
+define('STRIPE_CANCEL_URL', 'https://localhost/ai/payment/payment-cancel.php'); //Payment cancel URL 
     
 // Database configuration    
 define('DB_HOST', 'localhost');   

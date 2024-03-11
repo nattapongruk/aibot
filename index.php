@@ -18,14 +18,15 @@
         
             <p>Port number</p> <br> <input type="text" name="portnumber" class="inputbox" required><br><br>
             <p>Password</p> <br> <input type="password" name="password" class="inputbox" required><br><br>
+            <a href="forgot-password.php" class="forgot_p">Forgot Password</a>
             <input type="submit" value="Login" class="loginbut">
         </form>
 <br>
-    <a href="register.php">Register</a>
+    <a href="register.php" >Register</a>
 
     </div>
     
 </body>
-
+    
 
 </html>

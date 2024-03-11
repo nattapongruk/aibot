@@ -335,6 +335,7 @@
  
 
 .container {
+    width:65rem;
     margin-top: 5rem;
     margin-bottom: 5rem;
     padding: 20px;
@@ -347,7 +348,7 @@
 }
 .tablecontent {
     color: #0C0F14;
-    width: 100%;
+    width:100%;
     border-collapse: collapse;
 }
 .tablecontent th, .tablecontent td {
@@ -407,8 +408,6 @@ table a {
 
 
 }
-
-
 
 
   

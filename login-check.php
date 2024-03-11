@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); // ต้องใส่ exit เพื่อหยุดการทำงานทันทีหลังจาก redirect
     } else {
         // เมื่อไม่เจอข้อมูลในฐานข้อมูล
-        echo "Login failed. Invalid Port number or password.";
+        echo "<script>alert('Login failed. Invalid Port number or password.'); window.location='index.php';</script>";
     }
 }
 ?>
