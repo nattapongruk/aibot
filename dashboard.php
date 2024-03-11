@@ -178,16 +178,8 @@ $conn->close();
 
 
 
-<!-- Page Wrapper -->
 
-    <!-- Sidebar -->
-   
-    <!-- End of Sidebar -->
-
-  
-   
-
-        <!-- Main Content -->
+     
         <div id="content">  
            
             <div class="box">
@@ -293,7 +285,7 @@ $conn->close();
                                          
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Number of members
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Number of members (ALL)
                                                     </div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
@@ -335,7 +327,48 @@ $conn->close();
                                         </div>
                                     </div>
                                 </div>
-                              
+                                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">New Users (Mounthly)</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="font-info1">
+                                                <?php
+                                                    // เชื่อมต่อฐานข้อมูล
+                                                    include('connect.php'); 
+
+                                                    // ดึงข้อมูลผู้ใช้งานใหม่รายเดือน
+                                                    $currentMonth = date('m');
+                                                    $currentYear = date('Y');
+                                                    $startOfMonth = $currentYear.'-'.$currentMonth.'-01';
+                                                    $endOfMonth = $currentYear.'-'.$currentMonth.'-'.date('t', strtotime($startOfMonth));
+                                                    $sql = "SELECT count(portnumber) AS new_users 
+                                                            FROM infouser 
+                                                            WHERE register_date BETWEEN '$startOfMonth' AND '$endOfMonth'";
+                                                    $result = $conn->query($sql);
+
+                                                    if ($result->num_rows > 0) {
+                                                        while($row = $result->fetch_assoc()) {
+                                                            $new_users = $row["new_users"];
+                                                            // แสดงผลลัพธ์
+                                                            echo number_format($new_users).' users';
+                                                        }
+                                                    } else {
+                                                        echo "0";
+                                                    }
+                                                    $conn->close();
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div class="row">
                
                 <div class="graph1">
@@ -574,47 +607,89 @@ $conn->close();
                 
                 </div class="graph1">
                 </div>
-            <!-- Topbar -->
-          
-            <!-- End of Topbar -->
-
+           
             <!-- Begin Page Content -->
-            
-            </div>
-        </div>         <!-- Content Column -->
-                    
+             
+                </div>
+                <h1 class="hea">Top Spend</h1>
+                        <?php
+                            include('connect.php'); 
+                            $sql = "SELECT portnumber, SUM(total) AS total_spent
+                                    FROM payment
+                                    WHERE status = 'paid'
+                                    GROUP BY portnumber
+                                    ORDER BY total_spent DESC
+                                    LIMIT 5";
+                            $result = $conn->query($sql);
 
-                        <!-- Project Card Example -->
-                       
-                        <!-- Color System -->
-                       
+                            // เช็คว่ามีข้อมูลในฐานข้อมูลหรือไม่
+                            if ($result->num_rows > 0) {
+                                // แสดงผลลัพธ์ในรูปแบบของตาราง
+                                echo "<table>";
+                                echo "<tr><th>Portnumber</th><th>Total Spent</th></tr>";
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>".$row["portnumber"]."</td><td>".$row["total_spent"]."</td></tr>";
+                                }
+                                echo "</table>";
+                            } else {
+                                echo "0 results";
+                            }
+                            $conn->close();
+                        ?>     
 
+
+                    <h1 class="hea">Top Template Downloads</h1>
+                <?php
+                include('connect.php'); 
+
+                // เตรียมคำสั่ง SQL สำหรับดึงข้อมูล symbol จากตาราง template ที่ dowload_count มากที่สุด 3 รายการ
+                $sql = "SELECT name, Symbol,timeframe, download_count FROM template ORDER BY download_count DESC LIMIT 5";
+                $result = $conn->query($sql);
+                $count=0;
+                // ตรวจสอบว่ามีข้อมูลในฐานข้อมูลหรือไม่
+                if ($result->num_rows > 0) {
+                    // วนลูปเพื่อดึงข้อมูลแต่ละแถว
+                    while($row = $result->fetch_assoc()) {
+                        $timeframe = $row["timeframe"];
+                        $name = $row["name"];
+                        $Symbol = $row["Symbol"];
+                        $download_count = $row["download_count"];
+                        $count++;
+                        // สร้างชื่อไฟล์ภาพโดยเริ่มต้นด้วย 'z' และลงท้ายด้วย '.png'
+                        $image_filename = 'z' . $Symbol . '.png';
+                ?>
+
+                        <div class="slide">
+                           
+                            <img src="img/<?php echo $Symbol; ?>.png" alt="">
+                            <h2><?php echo $count; ?></h2>
+                            <div class="label">
+                                <h3><?php echo $Symbol; ?> M<?php echo $timeframe; ?> </h3>
+                                <h4><?php echo $name; ?></h4>
+                            </div>
+                            <p><?php echo $download_count; ?> <i class="fa-solid fa-download" style="color: #d17842;"></i></p>
+                            
+
+                        </div>
+                <?php
+
+
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>
+
+
+
+        </div>         
                     
 
                    
+                    
 
                    
-
-                        <!-- Approach -->
-                  
-
-                  
-                
-
-            
-            <!-- /.container-fluid -->
-
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-     
-        <!-- End of Footer -->
-
-    <!-- End of Content Wrapper -->
-
-
-<!-- End of Page Wrapper -->
-
 
 
 <!-- Bootstrap core JavaScript-->

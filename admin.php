@@ -259,7 +259,7 @@ $conn->close();
         <input type="text" name="model_name"><br><br>
         Timeframe:
         <input type="text" name="timeframe"><br><br>
-        <input type="submit" value="Upload" name="submit">
+        <input type="submit" value="Upload" name="submit" class="buttt">
     </form>
  
         <h2>Payment check</h2>

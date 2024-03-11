@@ -43,6 +43,8 @@ if (isset($_GET['start_date']) && isset($_GET['end_date']) && isset($_GET['total
             // แปลงยอดรวมเงิน USD เป็น THB โดยการคูณอัตราแลกเปลี่ยน
             $total_in_thb = $total * $usd_to_thb_rate ;
             $total_profit = number_format($total * $usd_to_thb_rate*0.05,2);
+            $total_com = number_format($total * 0.05,3);
+           
             // กำหนดค่าของตัวแปร total_unprofit และ unprofit
          
         } else {
@@ -284,57 +286,11 @@ $conn->close();
            
             <tr>
                 <th> ยอดที่ต้องชำระ 5 %</th>
-                <td><?php echo number_format($total_in_thb*0.05, 2); ?> บาท ($<?php echo number_format($total*0.05, 2); ?>)</td>
+                <td><?php echo number_format($total_in_thb*0.05, 2);  ?> บาท ($<?php echo number_format($total*0.05, 2); ?>)</td>
             </tr>
         </table>
-                <img src="img/qr.png" alt="">
-        <form action="upload-slip.php?start_date=<?php echo $start_date; ?>&end_date=<?php echo $end_date; ?>" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*">
-        <button type="submit">Confirm Payment</button>
-    </form>
-    </div>
-        <?php
-    
-// เชื่อมต่อกับฐานข้อมูล
-include('connect.php');
+        <form action="upload-slip.php?start_date=<?php echo $start_date; ?>&end_date=<?php echo $end_date; ?>&total_com=<?php echo $total_com; ?>" method="post" enctype="multipart/form-data">
+            <button type="submit">Confirm </button>
+        </form>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['image'])) {
-    // ตรวจสอบว่ามีการอัพโหลดไฟล์รูปหรือไม่
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        // กำหนดค่าตัวแปรที่จำเป็นสำหรับการบันทึกข้อมูลลงในฐานข้อมูล
-        
-        $total_profit_float = (float) $total_profit;
-
-        $start_date = $_GET['start_date'];
-        $end_date = $_GET['end_date'];
-        $payment_date = date('Y-m-d H:i:s'); // เวลาปัจจุบัน
-        $status = 'pending'; // สถานะ 'pending'
-
-        // ดำเนินการอัพโหลดไฟล์รูปและเก็บข้อมูลลงในตาราง payment
-        $image_data = file_get_contents($_FILES['image']['tmp_name']);
-        $image_base64 = base64_encode($image_data);
-
-        // เตรียมคำสั่ง SQL สำหรับการเพิ่มข้อมูลในตาราง payment
-        $sql = "INSERT INTO payment (portnumber,total, start_date, end_date, Pay_slip, payment_date, status) 
-                VALUES ('" . $_SESSION['portnumber'] . "','$total_profit', '$start_date', '$end_date', '$image_base64', '$payment_date', '$status')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('บันทึกข้อมูลสำเร็จ'); window.location.href = 'payment.php';</script>";
-        } else {
-            echo "<script>alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล: " . $conn->error . "');</script>";
-        }
-
-    } else {
-        echo "เกิดข้อผิดพลาดในการอัพโหลดไฟล์รูป";
-    }
-}
-?>
-
-    </form>
-    
-    </div>
-
-
-
-</body>
-</html>
+       

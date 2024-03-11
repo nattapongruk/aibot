@@ -252,7 +252,7 @@ form button[type="submit"] {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #E58E27;
     color: white;
     border: none;
     border-radius: 5px;
@@ -262,7 +262,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #e58f27ad;
 }
 
 
@@ -480,7 +480,7 @@ form button[type="submit"] {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #E58E27;
     color: white;
     border: none;
     border-radius: 5px;
@@ -490,7 +490,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #e58f27ad;
 }
 
 }

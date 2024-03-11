@@ -545,3 +545,155 @@ chart1{
     padding: 1rem;
     width: 100%;
 }
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  margin-top:20px ;
+  margin-bottom:20px ;
+}
+
+table th, table td {
+    
+    text-align: left;
+    padding: 8px;
+    color: white;
+    background: #D17842;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #0C0F14;
+}
+
+
+
+table tr:hover {
+    background-color: #dddddd;
+}
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+    margin: 5rem;
+   
+}
+
+.slider{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width:100%;
+}
+   
+   
+
+.content h2{
+    margin-top: 2rem;
+    color: white;
+
+}
+.slide{
+    width:100%;
+    height: 6rem;
+    flex-direction: row;
+    position: relative;
+    padding: 15px;
+    background-color: #ffffff52;
+    color: white;
+    border-radius: 10px;
+    display: flex; /* เพิ่มบรรทัดนี้ */
+    align-items: center; /* เพิ่มบรรทัดนี้ */
+    margin-bottom: 2rem;
+    flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
+    justify-content: space-around; /* จัดวางตามระยะห่างระหว่างองค์ประกอบ */
+    align-items: center; /* จัดวางให้กึ่งกลางตามแนวตั้ง */
+  
+
+}
+.label{
+    width: 120px;
+    margin: 5px;
+}
+
+.slide h2 {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    align-items: center;
+    position: absolute; /* ตั้งค่า position เป็น absolute สำหรับ h2 */
+    top: -50%; /* จัดวาง h2 ที่ด้านบนของ slide */
+    transform: translateX(-90%); /* ย้าย h2 ไปทางซ้ายอยู่ 50% ของ slide */
+    background-color: #D17842;
+    width: 40px;
+    height: 40px;
+    border-radius:60px ;
+    left: 1%; /* จัดวาง h2 ให้ชิดซ้ายของ slide */
+    z-index: 1; /* ตั้งค่า z-index เพื่อให้ h2 อยู่ด้านบนของรูปภาพ */
+}
+.slide img{
+    float: left;
+   border-radius: 10px;
+   width: 70px;
+   margin-right: 4px;
+}
+.slide h4{
+    flex-direction: column; /* เพิ่มบรรทัดนี้ */
+    font-weight: lighter;
+}
+.slide h3{
+    font-weight: lighter;
+}
+.slide a{
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    width: 60px;
+    margin-top: 15px;
+    color: #FFFFFF;
+    background-color: #D17842;
+    border-radius: 5px;
+    padding: 5px;
+    border: 0;
+   
+ }
+ .slide p{
+    
+    text-align: center;
+   margin-right: 10px;
+ }
+.topic{
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252A32;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+.content h2 {
+    margin-top: 2rem;
+    color: white;
+}
+
+.topic {
+    width: 220px;
+    text-align: center;
+    padding: 10px;
+    background-color: #252a32;
+    border-radius: 10px;
+}
+.hea{
+   margin-top: 20px; 
+   margin-bottom: 20px;
+}

@@ -7,6 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idcard = $_POST['idcard'];
     $phone = $_POST['phone'];
     $pass = $_POST['password'];
+    
+    // เก็บวันที่และเวลาปัจจุบัน
+    $register_date = date('Y-m-d H:i:s');
 
     // ตรวจสอบว่า portnumber และ idcard ไม่ซ้ำ
     $checkDuplicate = "SELECT * FROM infouser WHERE portnumber='$portnumber' OR idcard='$idcard'";
@@ -17,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: Portnumber or ID Card already exists";
     } else {
         // ถ้าไม่มีข้อมูลซ้ำในฐานข้อมูล ทำการเพิ่มข้อมูล
-        $sql = "INSERT INTO infouser (portnumber, idcard, phone, password)
-                VALUES ('$portnumber', '$idcard', '$phone', '$pass')";
-         header("Location: index.php");
+        $sql = "INSERT INTO infouser (portnumber, idcard, phone, password, register_date)
+                VALUES ('$portnumber', '$idcard', '$phone', '$pass', '$register_date')";
+        header("Location: index.php");
 
         if ($conn->query($sql) === TRUE) {
             echo "Registration successful";

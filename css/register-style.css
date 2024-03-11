@@ -68,6 +68,9 @@
         background-color: rgba(255, 153, 19, 0.219);
         backdrop-filter: blur(10px);
         color: #573000;
+        margin-bottom: 20px;
+        
+        
      }
      .loginbut:hover{
         opacity: 0.75;
@@ -106,7 +109,7 @@
     .container{  
         border-radius: 1.2em;
         padding: 2rem;
-        height: 62em;
+        height: 66em;
         color: black;
         width: 30rem;
         text-align: center;
@@ -143,6 +146,8 @@
         background-color: #E58E27;
         color: white;
         box-shadow: 1px 1px 1px 1px rgba(107, 107, 107, 0.5);
+        margin-bottom: 20px;
+        margin-top: 20px;
      }
      .loginbut:hover{
         opacity: 0.75;

@@ -128,7 +128,7 @@ $conn->close();
    
 
     <div class="container">
-    <h2>บิลของฉัน</h2>
+    <h2>My Bills</h2>
         <table class='tablecontent'>
     <tr>
         <th>Start Date</th>
@@ -154,7 +154,7 @@ $sql = "SELECT
         WHERE 
             portnumber = '$portnumber' AND
             stats = 0 AND
-            money > 0 AND
+           
             date >= (SELECT MIN(date) FROM history WHERE portnumber = '$portnumber') AND 
             date <= NOW() 
         GROUP BY 
@@ -163,17 +163,21 @@ $sql = "SELECT
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
+
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             // คำนวณหาจำนวนวันระหว่าง start_date และ end_date
             $start_date = new DateTime($row['start_date']);
             $end_date = new DateTime($row['end_date']);
+            $total = $row['total'];
+            $total_profit=number_format($total * 0.05,2);
+
             $period = $start_date->diff($end_date)->days + 1; // เพิ่ม 1 เพราะจำนวนวันที่คำนวณต้องรวมวันที่เริ่มต้นด้วย
             echo "<tr>";
             echo "<td>" . $row['start_date'] . "</td>";
             echo "<td>" . $row['end_date'] . "</td>";
             echo "<td>" . $row['total_trade'] . "</td>";
-            echo "<td>" . $row['total'] ." $". "</td>";
+            echo "<td>" . $total_profit ." $". "</td>";
             echo "<td>";
             // เปลี่ยนปุ่มเป็นลิงก์ที่เชื่อมโยงไปยังหน้า invoice.php พร้อมส่งพารามิเตอร์ที่เกี่ยวข้อง
             echo "<a href='invoice.php?start_date=" . urlencode($row['start_date']) . "&end_date=" . urlencode($row['end_date']) . "&total_trade=" . urlencode($row['total_trade']) . "&total=" . urlencode($row['total']) . "' class='paybut'>Continue</a>";
@@ -191,7 +195,51 @@ if ($result) {
 
 ?>
 </table>
+    <h2>Payment History</h2>
+    <table class='tablecontent'>
+        <tr>
+            <th>Portnumber</th>
+            <th>Date</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+        </tr>
 
+        <?php  
+      
+     
+                    
+        include('connect.php');
+
+        $portnumber = $_SESSION["portnumber"]; // เก็บค่า portnumber ของผู้ใช้ปัจจุบัน
+
+        $sql = "SELECT portnumber, payment_date, total, status
+                FROM payment
+                WHERE portnumber = '$portnumber' AND status IN ('paid', 'pending')
+                ORDER BY FIELD(status, 'pending', 'paid'), payment_date ASC";
+
+        $result = $conn->query($sql);
+
+        // ตรวจสอบว่ามีข้อมูลในฐานข้อมูลหรือไม่
+        if ($result->num_rows > 0) {
+            // แสดงผลลัพธ์ในรูปแบบของตาราง HTML
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>".$row["portnumber"]."</td>";
+                echo "<td>".$row["payment_date"]."</td>";
+                echo "<td>".$row["total"]."</td>";
+                echo "<td>".$row["status"]."</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='4'>0 results</td></tr>";
+        }
+        $conn->close();
+        ?>
+
+</table>
+
+
+           
     </div>
 
     
